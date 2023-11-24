@@ -3,6 +3,7 @@ import pandas as pd
 import pickle
 from sklearn.preprocessing import MinMaxScaler
 from lightgbm import LGBMClassifier
+import os
 
 def predict_perso(model, X, threshold=0.5):
     probas = model.predict_proba(X)
@@ -18,9 +19,10 @@ def predict():
         df_param = pd.DataFrame(request.json["dataframe_split"]["data"], columns=request.json["dataframe_split"]["columns"])
 
         # Chargement du modèle pickle
-        model_path = "C:/Users/colin/Documents/Formation_Openclassrooms/Projet7_ImplémentezUnModèleDeScoring/basic_lgbmc.pkl"
-        with open(model_path, 'rb') as file:
-            loaded_model = pickle.load(file)
+        try:
+            model = pickle.load(open("C:/Users/colin/Documents/Formation_Openclassrooms/Projet7_ImplémentezUnModèleDeScoring/basic_lgbmc.pkl", 'rb'))
+        except:
+            model = pickle.load(open("basic_lgbmc.pkl", 'rb'))
 
         # Chargement du scaler avec pickle (X du jeu de données 'application_train.csv' standardisés avec le MinMaxScaler)
         with open('minmax_scaler.pkl', 'rb') as file:
@@ -34,10 +36,10 @@ def predict():
         df_param_normalized = pd.DataFrame(loaded_minmax.transform(df_param), columns=df_param.columns)
 
         # Prédictions
-        results_target = loaded_model.predict(df_param_normalized)
-        results_target_best = predict_perso(loaded_model, df_param_normalized, threshold=0.2222)
-        results_proba = loaded_model.predict_proba(df_param_normalized)
-        results_target_best, class_0_proba, class_1_proba = predict_perso(loaded_model, df_param_normalized, threshold=0.2222)
+        results_target = model.predict(df_param_normalized)
+        results_target_best = predict_perso(model, df_param_normalized, threshold=0.2222)
+        results_proba = model.predict_proba(df_param_normalized)
+        results_target_best, class_0_proba, class_1_proba = predict_perso(model, df_param_normalized, threshold=0.2222)
 
         # Ajout des colonnes prédites au Dataframe
         df_param['target'] = results_target_best
@@ -64,5 +66,4 @@ def predict():
     return jsonify(dictionnaire)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5014)
-
+    app.run(debug=True, port=int(os.environ.get("PORT", 5014)))
