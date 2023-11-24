@@ -1,0 +1,16 @@
+# Ignorer tous les notebooks
+*.ipynb
+
+# Ignorer certaines images
+Datas/rfecv_75000_clients.png
+Datas/smote_classification_rapport_30f.png
+Datas/smote_mc_roc_30f.png
+
+# Ignorer le dataframe d'entraînement
+Datas/trainset_rfe_30f.csv
+
+# Ignorer les fichiers pdf
+*.pdf
+
+# Ignorer les fichiers HTML
+*.html
