@@ -7,7 +7,6 @@ import pickle
 from sklearn.preprocessing import MinMaxScaler
 import shap
 from shap import TreeExplainer, Explainer
-import wcag_contrast_ratio as contrast
 import plotly.express as px
 import plotly.graph_objects as go
 import requests
