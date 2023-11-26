@@ -16,8 +16,6 @@ app = Flask(__name__)
 def home():
     return "Hello, World!"
 
-
-
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
@@ -35,7 +33,7 @@ def predict():
             loaded_minmax = pickle.load(open("C:/Users/colin/Documents/Formation_Openclassrooms/Projet7_ImplémentezUnModèleDeScoring/minmax_scaler.pkl", 'rb'))
         
         except:
-            loaded_minmax = pickle.load("minmax_scaler.pkl", 'rb')
+            loaded_minmax = pickle.load(open("minmax_scaler.pkl", 'rb'))
 
         # Retrait de la variable "SK_ID_CURR" si elle est présente
         if 'SK_ID_CURR' in df_param.columns:
