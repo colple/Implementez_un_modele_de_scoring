@@ -191,9 +191,9 @@ if response.status_code == 200:
     api_response = response.json()
     
     # Extraction des colonnes prédites de la réponse de l'API
-    results_target_best = api_response['target']
-    class_0_proba = api_response['class_0_proba']
-    class_1_proba = api_response['class_1_proba']
+    results_target_best = api_response.get('target', None)
+    class_0_proba = api_response.get('class_0_proba', None)
+    class_1_proba = api_response.get('class_1_proba', None)
 
     # Ajout des colonnes prédites au dataFrame df_api
     df_api['target'] = results_target_best
