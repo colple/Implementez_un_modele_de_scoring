@@ -12,6 +12,12 @@ def predict_perso(model, X, threshold=0.5):
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def home():
+    return "Hello, World!"
+
+
+
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
