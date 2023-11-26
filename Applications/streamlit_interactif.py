@@ -31,7 +31,7 @@ else:
         st.stop()
 
 # Définition de l'URL de l'API
-api_url = "http://127.0.0.1:5021/predict"
+api_url = "https://modele-scoring-credits-c459a33a2133.herokuapp.com/predict"
 
 # Déclaration de la variable uploaded_file en dehors de la fonction afin de permettre le chargement d'un jeu de données
 uploaded_file = None
