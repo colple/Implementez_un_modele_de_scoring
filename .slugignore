@@ -14,3 +14,6 @@ Datas/trainset_rfe_30f.csv
 
 # Ignorer les fichiers HTML
 *.html
+
+# Ignorer le dashboard contenant tous les nouveaux clients
+Applications/streamlit_interactif.py
