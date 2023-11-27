@@ -1,1 +1,1 @@
-web: sh -c 'streamlit run Applications/streamlit_interactif.py'
+web: sh app/setup.sh && streamlit run Applications/streamlit_interactif.py
