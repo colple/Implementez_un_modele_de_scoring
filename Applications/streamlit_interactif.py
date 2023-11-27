@@ -44,17 +44,18 @@ def load_data():
     if uploaded_file is not None:
         # Chargement depuis le fichier téléchargé
         return pd.read_csv(uploaded_file, sep=",")
-    elif st.get_option("server.baseUrlPath") == "":
-        # Chargement local par défaut
+    
+    # Chargement depuis GitHub
+    github_url = "https://github.com/colple/Implementez_un_modele_de_scoring/blob/main/Datas/testset_rfe_30f.csv?raw=true"
+    try:
+        return pd.read_csv(github_url, sep=",")
+    except Exception as e:
+        # En cas d'échec, essaie de charger localement
         local_path = "C:/Users/colin/Documents/Formation_Openclassrooms/Projet7_ImplémentezUnModèleDeScoring/testset_rfe_30f.csv"
-        return pd.read_csv(local_path, sep=",")
-    else:
-        # Chargement à partir de GitHub
-        github_url = "https://github.com/colple/Implementez_un_modele_de_scoring/blob/main/Datas/testset_rfe_30f.csv?raw=true"
         try:
-            return pd.read_csv(github_url, sep=",")
-        except Exception as e:
-            st.error(f"Le chargement des données depuis GitHub a échoué avec l'erreur : {str(e)}")
+            return pd.read_csv(local_path, sep=",")
+        except FileNotFoundError:
+            st.error(f"Le chargement des données a échoué avec l'erreur : {str(e)}")
             st.stop()
 
 # Chargement des données
