@@ -17,12 +17,12 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Chargement du modèle depuis un fichier pickle
 model_local_path = "C:/Users/colin/Documents/Formation_Openclassrooms/Projet7_ImplémentezUnModèleDeScoring/basic_lgbmc.pkl"
-model_github_url = "https://github.com/colple/Implementez_un_modele_de_scoring/main/basic_lgbmc.pkl?raw=true"
+model_github_url = "https://github.com/colple/Implementez_un_modele_de_scoring/raw/main/basic_lgbmc.pkl"
 
-if st.get_option("server.baseUrlPath") == "":
+try:
     with open(model_local_path, 'rb') as model_file:
         model = pickle.load(model_file)
-else:
+except:
     response = requests.get(model_github_url)
     if response.status_code == 200:
         model_bytes = io.BytesIO(response.content)
@@ -30,6 +30,7 @@ else:
     else:
         st.error(f"Le chargement du modèle depuis GitHub a échoué avec le code d'état {response.status_code}")
         st.stop()
+
 
 # Définition de l'URL de l'API
 api_url = "https://modele-scoring-credits-c459a33a2133.herokuapp.com/predict"
@@ -50,7 +51,11 @@ def load_data():
     else:
         # Chargement à partir de GitHub
         github_url = "https://github.com/colple/Implementez_un_modele_de_scoring/blob/main/Datas/testset_rfe_30f.csv?raw=true"
-        return pd.read_csv(github_url, sep=",")
+        try:
+            return pd.read_csv(github_url, sep=",")
+        except Exception as e:
+            st.error(f"Le chargement des données depuis GitHub a échoué avec l'erreur : {str(e)}")
+            st.stop()
 
 # Chargement des données
 df_complet = load_data()
@@ -59,10 +64,20 @@ df_complet = load_data()
 df_complet_scaled = df_complet.copy()
 
 # Chargement du scaler avec pickle
+minmax_scaler_local_path = "C:/Users/colin/Documents/Formation_Openclassrooms/Projet7_ImplémentezUnModèleDeScoring/minmax_scaler.pkl"
+minmax_scaler_github_url = "https://github.com/colple/Implementez_un_modele_de_scoring/blob/main/minmax_scaler.pkl?raw=true"
+
 try:
-    loaded_minmax = pickle.load(open("C:/Users/colin/Documents/Formation_Openclassrooms/Projet7_ImplémentezUnModèleDeScoring/minmax_scaler.pkl", 'rb'))
+    loaded_minmax = pickle.load(open(minmax_scaler_local_path, 'rb'))
 except:
-    loaded_minmax = pickle.load(open("https://github.com/colple/Implementez_un_modele_de_scoring/blob/main/'minmax_scaler.pkl'?raw=true", 'rb'))
+    response = requests.get(minmax_scaler_github_url)
+    if response.status_code == 200:
+        minmax_scaler_bytes = io.BytesIO(response.content)
+        loaded_minmax = pickle.load(minmax_scaler_bytes)
+    else:
+        st.error(f"Le chargement du MinMax Scaler depuis GitHub a échoué avec le code d'état {response.status_code}")
+        st.stop()
+
 
 # Retrait de la colonne "SK_ID_CURR" si elle est présente
 if 'SK_ID_CURR' in df_complet_scaled.columns:
