@@ -14,6 +14,7 @@ import os
 import io
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
+
 # Chargement du modèle depuis un fichier pickle
 model_local_path = "C:/Users/colin/Documents/Formation_Openclassrooms/Projet7_ImplémentezUnModèleDeScoring/basic_lgbmc.pkl"
 model_github_url = "https://github.com/colple/Implementez_un_modele_de_scoring/main/basic_lgbmc.pkl?raw=true"
@@ -100,7 +101,7 @@ st.markdown('<div class="custom-title">Décision sur l\'octroi du prêt</div>', 
 ###############################################################################################################
 
 # Logo de la société
-st.sidebar.image("pret_a_depenser.png", use_column_width=True)
+st.sidebar.image("logo_pret_a_depenser.png", use_column_width=True)
 
 # Texte introductif
 st.sidebar.markdown('<h2 style="font-family: Verdana, sans-serif; font-size: 18px;">Bienvenue dans notre société proposant des prêts à la consommation en toute transparence.</h2>', unsafe_allow_html=True)
