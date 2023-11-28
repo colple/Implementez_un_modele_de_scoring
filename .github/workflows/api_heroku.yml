@@ -13,6 +13,6 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.14 # Facilite le déploiement
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "mode-scoring-credits"
+          heroku_app_name: "modele-scoring-credits"
           heroku_email: "colineple@yahoo.fr"
  
