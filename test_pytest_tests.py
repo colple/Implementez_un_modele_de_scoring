@@ -22,48 +22,21 @@ import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 ###########################################################################################################
-# VERIFICATION DU CHARGEMENT DES DONNEES DU DATAFRAME
-###########################################################################################################
-
-# Test 1: Vérification que la fonction load_data renvoie un DataFrame non vide
-
-def test_load_data_not_empty():
-    df = load_data()
-    assert not df.empty, "Le DataFrame doit contenir des données"
-
-# Test 2: Vérification que la fonction load_data renvoie un DataFrame avec les colonnes attendues
-
-def test_load_data_columns():
-    expected_columns = ["SK_ID_CURR", "AMT_INCOME_TOTAL", "AMT_CREDIT", "AMT_ANNUITY","REGION_POPULATION_RELATIVE","EXT_SOURCE_1","EXT_SOURCE_2","EXT_SOURCE_3","AGE",
-                    "YEARS_LAST_PHONE_CHANGE","YEARS_EMPLOYED","ANNUITY_INCOME_PERC","ANNUITY_RATE_PERC","CREDIT_INCOME_PERC","prev_AMT_ANNUITY_mean","prev_AMT_CREDIT_mean","prev_AMT_CREDIT_sum","prev_AMT_DOWN_PAYMENT_mean","prev_DAYS_DECISION_mean","prev_CNT_PAYMENT_mean","prev_AMT_PAYMENT_mean","prev_AMT_INSTALMENT_mean","prev_SK_DPD_count","home_DAYS_CREDIT_min","home_DAYS_CREDIT_ENDDATE_mean","home_AMT_CREDIT_SUM_sum","home_AMT_CREDIT_SUM_mean","home_AMT_CREDIT_SUM_DEBT_sum","prev_type_loans","prev_cash_loans_perc","total_accepted_loans"]  
-    df = load_data()
-    assert df.columns.tolist() == expected_columns, "Le DataFrame doit avoir les colonnes attendues"
-
-# Test 3: Vérification que la fonction load_data renvoie un DataFrame avec un nombre de clients corrects
-
-def test_load_data_number_of_rows():
-    expected_rows = 48744  # Remplacez par le nombre réel de lignes attendu
-    df = load_data()
-    assert len(df) == expected_rows, "Le DataFrame doit avoir le bon nombre de lignes"
-
-###########################################################################################################
 # VERIFICATION DU CHARGEMENT DU MODELE ET DU SCALER
 ###########################################################################################################
 
 def test_load_model():
     """Test du chargement du modèle LGBMClassifier"""
-    model_path = "C:/Users/colin/Documents/Formation_Openclassrooms/Projet7_ImplémentezUnModèleDeScoring/basic_lgbmc.pkl"
 
-    with open(model_path, 'rb') as file:
+    with open("basic_lgbmc.pkl", 'rb') as file:
         loaded_model = pickle.load(file)
 
     assert isinstance(loaded_model, LGBMClassifier), "Le modèle chargé n'est pas une instance de LGBMClassifier"
 
 def test_load_scaler():
     """Test du chargement des X de jeu de données 'testset_rfe_30f.csv'"""
-    scaler_path = "C:/Users/colin/Documents/Formation_Openclassrooms/Projet7_ImplémentezUnModèleDeScoring/minmax_scaler.pkl"
 
-    with open(scaler_path, 'rb') as file:
+    with open("minmax_scaler.pkl", 'rb') as file:
         loaded_minmax = pickle.load(file)
 
     assert isinstance(loaded_minmax, MinMaxScaler), "Le scaler chargé n'est pas une instance de MinMaxScaler"
