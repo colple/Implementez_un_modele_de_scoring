@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run Applications/streamlit_interactif_light.py
+web: gunicorn -b 0.0.0.0:$PORT Applications.api_predictions:app
