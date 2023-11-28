@@ -1,0 +1,17 @@
+name: Deploiement de l'API sur Heroku
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "modele-scoring-credits"
+          heroku_email: "colineple@yahoo.fr"
+ 
