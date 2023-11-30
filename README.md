@@ -17,11 +17,12 @@ Un kernel Kaggle a également été mis à disposition afin de faciliter l’ana
 3. Mise en production du modèle de scoring de prédiction à l’aide d’une API, ainsi que du dashboard interactif appelant l’API pour les prédictions.
 
 ## Contenu de ce dépôt
-1. Un dossier Applications contenant l’API réalisée avec Flask ainsi que le script du dashboard.
-2. Un dossier DataDrift contenant les "data_drift_report.html" et "data_stability.html". 
-3. Un dossier Datas contenant non seulement le graphe de la RFE-CV obtenu à partir d'un Random Forest Classifier sur 75000 clients mais aussi le "ranking" issu de la RFE, la description des 30 variables utilisées pour l’élaboration de modèle et le logo de la société Prêt à dépenser.
+1. Un dossier Applications contenant l’API réalisée avec Flask ainsi que deux scripts pour le dashboard interactif réalisé avec streamlit (un contenant l'ensemble des clients du jeu de test, un ne contenant que les 1000 premiers clients).
+2. Un dossier DataDrift contenant les rapports "data_drift_report.html" et "data_stability.html". 
+3. Un dossier Datas contenant non seulement le graphe de la RFE-CV obtenu à partir d'un Random Forest Classifier sur 75000 clients mais aussi le "ranking" issu de la RFE et la description des 30 variables utilisées pour l’élaboration de modèle.
 4. Un dossier Notebooks contenant les 8 notebooks permettant l'élaboration du modèle final de scoring, l’analyse de la dérive des données (DataDrift) ainsi que les prédictions sur les nouveaux clients *via* l’API ou non.
-5. Les fichiers suivants : (i) la sauvegarde sous format pickle du modèle retenu (basic_lgbmc.pkl) et des données scalées *via* avec le MinMaxScaler lors de l’entraînement du modèle (minmax_scaler.pkl), (ii) le script pour les tests unitaires réalisés avec pytest, (iii) la note méthodologique, (iv) le README.md (v) le fichier requirements.txt (environnement utilisé pour le projet) et (vi) les fichiers générés lors du déploiement (Procfile,  runtime.txt, .gitignore) ainsi qu’un dossier . github/workflows contenant des fichiers YAML (extension .yml) décrivant les workflows d'intégration continue/déploiement continu (CI/CD).
+5. Les fichiers suivants : (i) la sauvegarde sous format pickle du modèle retenu (basic_lgbmc.pkl) et des données scalées *via* avec le MinMaxScaler lors de l’entraînement du modèle (minmax_scaler.pkl), (ii) deux scripts pour les tests unitaires: l'un pour leur réalisation en local (pytest_tests.py) et l'autre pour leur réalisation lors du déploiement continu (test_pytest_tests.py), (iii) la note méthodologique, (iv) le logo de la société sous format png (v) le fichier requirements.txt (environnement utilisé pour le projet) et (vi) les fichiers générés pour les déploiements de l'API (Procfile, runtime.txt, .slugignore) et du dashboard interactif (requirements.txt également nécessaire pur l'API).
+6. Un dossier. github/workflows contenant des fichiers YAML (extension .yml) décrivant les workflows d'intégration continue/déploiement continu (CI/CD): le déploiement sur Heroku et les tests unitaires.
 
 ## Auteur
 **colple** *(Coline Plé)*
