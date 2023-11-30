@@ -292,7 +292,7 @@ if selected_client:
     with col2:
         # Calcul des valeurs SHAP à partir du dataFrame original standardisé
         shap_df = df_complet_scaled[df_complet_scaled['SK_ID_CURR'] == selected_client].drop(["SK_ID_CURR", "Prediction_Class_0", "Prediction_Class_1", "Classe"], axis=1)
-        explainer = shap.TreeExplainer(model)
+        explainer = shap.Explainer(model)
 
         # Prédiction pour le client sélectionné
         shap_df_client = client_data.drop(["SK_ID_CURR", "Prediction_Class_0", "Prediction_Class_1", "Classe"], axis=1)
@@ -410,7 +410,7 @@ def calculate_shap_values(df_complet_scaled):
 mean_shap_values, sorted_indices = calculate_shap_values(df_complet_scaled)
 
 # Création du graphique barh pour afficher les valeurs SHAP globales des 30 variables
-fig, ax = plt.subplots(figsize=(60, 60))
+fig, ax = plt.subplots(figsize=(45, 45))
 ax.barh(range(30), mean_shap_values[sorted_indices], color='dodgerblue')
 ax.set_yticks(range(30))
 ax.set_yticklabels(df_complet_scaled.drop(["SK_ID_CURR", "Prediction_Class_0", "Prediction_Class_1","Classe"], axis=1).columns[sorted_indices], fontsize=40)
