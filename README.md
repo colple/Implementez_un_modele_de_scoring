@@ -1,8 +1,13 @@
 # IMPLEMENTEZ UN MODELE DE SCORING
-## Projet du parcours DataScientist d'OpenClassrooms
-**Contexte**
+
+## Contexte
+
+<p align="center">
+  <img src="logo_pret_a_depenser.png" alt="Texte alternatif">
+</p>
 
 Vous êtes Data Scientist au sein d'une société financière, nommée "Prêt à dépenser", qui propose des crédits à la consommation pour des personnes ayant peu ou pas du tout d'historique de prêt. L’entreprise souhaite mettre en œuvre un outil de “scoring crédit” pour calculer la probabilité qu’un client rembourse son crédit, puis classifie la demande en crédit accordé ou refusé. Elle souhaite donc développer un algorithme de classification en s’appuyant sur des sources de données variées (données comportementales, données provenant d'autres institutions financières, etc.). De plus, les chargés de relation client ont fait remonter le fait que les clients sont de plus en plus demandeurs de transparence vis-à-vis des décisions d’octroi de crédit. Cette demande de transparence des clients va tout à fait dans le sens des valeurs que l’entreprise veut incarner. Prêt à dépenser décide donc de développer un dashboard interactif pour que les chargés de relation client puissent à la fois expliquer de façon la plus transparente possible les décisions d’octroi de crédit, mais également permettre à leurs clients de disposer de leurs informations personnelles et de les explorer facilement.
+
 ## Préambule
 Ce projet a été réalisé en langage Python dans des Jupyter Notebooks et Streamlit a été utilisé pour la création du Dashboard interactif. Le déploiement du dashboard interactif et de l’API ont été réalisés respectivement sur les plateformes Cloud Streamlit et Heroku.
 
@@ -23,6 +28,7 @@ Un kernel Kaggle a également été mis à disposition afin de faciliter l’ana
 4. Un dossier Notebooks contenant les 8 notebooks permettant l'élaboration du modèle final de scoring, l’analyse de la dérive des données (DataDrift) ainsi que les prédictions sur les nouveaux clients *via* l’API ou non.
 5. Les fichiers suivants : (i) la sauvegarde sous format pickle du modèle retenu ("basic_lgbmc.pkl") et des données scalées *via* avec le MinMaxScaler lors de l’entraînement du modèle ("minmax_scaler.pkl"), (ii) les fonctions utilisées lors de la mise en place du modèle "fonctions_p7.py", (iii) deux scripts pour les tests unitaires: l'un pour leurs réalisations en local ("pytest_tests.py") et l'autre pour leurs réalisations lors du déploiement continu ("test_pytest_tests.py"), (iv) la note méthodologique, (v) le logo de la société sous format png et (vi) les fichiers générés pour les déploiements de l'API (Procfile, runtime.txt, .slugignore) et du dashboard interactif (requirements.txt également nécessaire pur l'API).
 6. Un dossier .github/workflows contenant des fichiers YAML (extension .yml) décrivant les workflows d'intégration continue/déploiement continu (CI/CD): le déploiement sur Heroku "api_heroku.yml" et les tests unitaires "pytests_tests.yml".
+7. La présentation des résultats du projet sous format pdf.
 
 ## Liens pour les dashboards interactifs
 1. Version contenant les 48744 clients: https://colple-implementez-un-m-applicationsstreamlit-interactif-e6beqf.streamlit.app/
