@@ -1,5 +1,7 @@
 # IMPLEMENTEZ UN MODELE DE SCORING
 
+## Sixième projet de ma formation de Data Scientist
+
 ## Contexte
 
 <p align="center">
@@ -28,7 +30,7 @@ Un kernel Kaggle a également été mis à disposition afin de faciliter l’ana
 4. Un dossier Notebooks contenant les 8 notebooks permettant l'élaboration du modèle final de scoring, l’analyse de la dérive des données (DataDrift) ainsi que les prédictions sur les nouveaux clients *via* l’API ou non.
 5. Les fichiers suivants : (i) la sauvegarde sous format pickle du modèle retenu ("basic_lgbmc.pkl") et des données scalées *via* avec le MinMaxScaler lors de l’entraînement du modèle ("minmax_scaler.pkl"), (ii) les fonctions utilisées lors de la mise en place du modèle "fonctions_p7.py", (iii) deux scripts pour les tests unitaires: l'un pour leurs réalisations en local ("pytest_tests.py") et l'autre pour leurs réalisations lors du déploiement continu ("test_pytest_tests.py"), (iv) la note méthodologique, (v) le logo de la société sous format png et (vi) les fichiers générés pour les déploiements de l'API (Procfile, runtime.txt, .slugignore) et du dashboard interactif (requirements.txt également nécessaire pur l'API).
 6. Un dossier .github/workflows contenant des fichiers YAML (extension .yml) décrivant les workflows d'intégration continue/déploiement continu (CI/CD): le déploiement sur Heroku "api_heroku.yml" et les tests unitaires "pytests_tests.yml".
-7. La présentation des résultats du projet sous format pdf.
+7. Le support de présentation pour la soutenance sous format pdf: presentation_13.pdf
 
 ## Liens pour les dashboards interactifs
 1. Version contenant les 48744 clients: https://colple-implementez-un-m-applicationsstreamlit-interactif-e6beqf.streamlit.app/
