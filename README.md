@@ -57,5 +57,5 @@ Un kernel Kaggle a également été mis à disposition afin de faciliter l’ana
 2. Version ne comprenant que les 1000 premiers clients: https://implementezunmodeledescoring-vuwuspwad8k6jktck7tawc.streamlit.app/
 
 ## Auteur
-**colple** *(Coline Plé)*
+**Coline Plé**
 
