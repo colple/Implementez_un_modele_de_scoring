@@ -19,7 +19,7 @@ Les données sont issues de Kaggle et sont disponibles à l'adresse suivante : h
 Les données sont réparties dans différentes tables, nécessitant ainsi des jointures ultérieures.
 
 <p align="center">
-  <img src="ljeu_de_donnees.png" alt="Texte alternatif">
+  <img src="jeu_de_donnees.png" alt="Texte alternatif">
 </p>
 
 Un kernel Kaggle a également été mis à disposition afin de faciliter l’analyse exploratoire, la préparation des données et le feature engineering nécessaires à l’élaboration du modèle de scoring (https://www.kaggle.com/code/jsaguiar/lightgbm-with-simple-features/script). **Etant optionnel, ce dernier n'a pas été utilisé**.
@@ -34,9 +34,9 @@ Un kernel Kaggle a également été mis à disposition afin de faciliter l’ana
 2. Un dossier DataDrift contenant les rapports "data_drift_report.html" et "data_stability.html". 
 3. Un dossier Datas contenant: (i) le graphe de la RFE-CV obtenu à partir d'un Random Forest Classifier sur 75000 clients mais aussi le "ranking" issu de la RFE, (ii) la description des 30 variables utilisées pour l’élaboration de modèle, (iii) les rapports de classification, matrice de confusion et courbe ROC obtenus lors de la réalisation de SMOTE et (iv) les dataframes d'entraînement et de test utilisés pour l'élaboration du modèle, respectivement "trainset_rfe_30f.csv" et "testset_rfe_30f.csv".
 4. Un dossier Notebooks contenant les 8 notebooks permettant l'élaboration du modèle final de scoring, l’analyse de la dérive des données (DataDrift) ainsi que les prédictions sur les nouveaux clients *via* l’API ou non.
-5. Les fichiers suivants : (i) la sauvegarde sous format pickle du modèle retenu ("basic_lgbmc.pkl") et des données scalées *via* avec le MinMaxScaler lors de l’entraînement du modèle ("minmax_scaler.pkl"), (ii) les fonctions utilisées lors de la mise en place du modèle "fonctions_p7.py", (iii) deux scripts pour les tests unitaires: l'un pour leurs réalisations en local ("pytest_tests.py") et l'autre pour leurs réalisations lors du déploiement continu ("test_pytest_tests.py"), (iv) la note méthodologique, (v) le logo de la société sous format png et (vi) les fichiers générés pour les déploiements de l'API (Procfile, runtime.txt, .slugignore) et du dashboard interactif (requirements.txt également nécessaire pur l'API).
+5. Les fichiers suivants : (i) la sauvegarde sous format pickle du modèle retenu ("basic_lgbmc.pkl") et des données scalées *via* avec le MinMaxScaler lors de l’entraînement du modèle ("minmax_scaler.pkl"), (ii) les fonctions utilisées lors de la mise en place du modèle "fonctions_p7.py", (iii) deux scripts pour les tests unitaires: l'un pour leurs réalisations en local ("pytest_tests.py") et l'autre pour leurs réalisations lors du déploiement continu ("test_pytest_tests.py"), (iv) la note méthodologique, (v) le logo de la société et le schéma du jeu de données sous format png et (vi) les fichiers générés pour les déploiements de l'API (Procfile, runtime.txt, .slugignore) et du dashboard interactif (requirements.txt également nécessaire pur l'API).
 6. Un dossier .github/workflows contenant des fichiers YAML (extension .yml) décrivant les workflows d'intégration continue/déploiement continu (CI/CD): le déploiement sur Heroku "api_heroku.yml" et les tests unitaires "pytests_tests.yml".
-7. Le support de présentation pour la soutenance sous format pdf: presentation_13.pdf
+7. Le support de présentation pour la soutenance sous format pdf: presentation_13.pdf.
 
 ## Compétences acquises
 1. Nettoyage des données, feature engineering et gestion des valeurs manquantes spécifiques à la problématique métier.
