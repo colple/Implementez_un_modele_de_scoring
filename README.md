@@ -16,7 +16,13 @@ Ce projet a été réalisé en langage Python dans des Jupyter Notebooks et Stre
 ## Les données
 Les données sont issues de Kaggle et sont disponibles à l'adresse suivante : https://www.kaggle.com/c/home-credit-default-risk/data
 
-Un kernel Kaggle a également été mis à disposition afin de faciliter l’analyse exploratoire, la préparation des données et le feature engineering nécessaires à l’élaboration du modèle de scoring (https://www.kaggle.com/code/jsaguiar/lightgbm-with-simple-features/script). Etant optionnel, ce dernier n'a pas été utilisé.
+Les données sont réparties dans différentes tables, nécessitant ainsi des jointures ultérieures.
+
+<p align="center">
+  <img src="ljeu_de_donnees.png" alt="Texte alternatif">
+</p>
+
+Un kernel Kaggle a également été mis à disposition afin de faciliter l’analyse exploratoire, la préparation des données et le feature engineering nécessaires à l’élaboration du modèle de scoring (https://www.kaggle.com/code/jsaguiar/lightgbm-with-simple-features/script). **Etant optionnel, ce dernier n'a pas été utilisé**.
 
 ## Missions
 1. Construction d'un modèle de scoring prédisant la probabilité de faillite d'un client de façon automatique.
@@ -31,6 +37,20 @@ Un kernel Kaggle a également été mis à disposition afin de faciliter l’ana
 5. Les fichiers suivants : (i) la sauvegarde sous format pickle du modèle retenu ("basic_lgbmc.pkl") et des données scalées *via* avec le MinMaxScaler lors de l’entraînement du modèle ("minmax_scaler.pkl"), (ii) les fonctions utilisées lors de la mise en place du modèle "fonctions_p7.py", (iii) deux scripts pour les tests unitaires: l'un pour leurs réalisations en local ("pytest_tests.py") et l'autre pour leurs réalisations lors du déploiement continu ("test_pytest_tests.py"), (iv) la note méthodologique, (v) le logo de la société sous format png et (vi) les fichiers générés pour les déploiements de l'API (Procfile, runtime.txt, .slugignore) et du dashboard interactif (requirements.txt également nécessaire pur l'API).
 6. Un dossier .github/workflows contenant des fichiers YAML (extension .yml) décrivant les workflows d'intégration continue/déploiement continu (CI/CD): le déploiement sur Heroku "api_heroku.yml" et les tests unitaires "pytests_tests.yml".
 7. Le support de présentation pour la soutenance sous format pdf: presentation_13.pdf
+
+## Compétences acquises
+1. Nettoyage des données, feature engineering et gestion des valeurs manquantes spécifiques à la problématique métier.
+2. Mise en place d'un score métier et d'un seuil métier.
+3. Sélection des variables les plus pertinentes *via* une RFE-CV.
+4. Gestion du déséquilibre des classes.
+5. Elaboration d’un modèle d’apprentissage supervisé avec recherche d'optimisation des hyperparamètres.
+6. Mise en oeuvre d'un "tracking" des différents modèles testés par une démarche de type MLOps *via* MLFLow.
+7. Analyse de la dérive des données (Data Drift) à l'aide d'evidently.
+8. Rédaction d'une note méthodologique.
+9. Notion de déploiement d'une API de prédiction simple réalisée avec Flask sur Heroku.
+10. Réalisation d'un tableau de bord interactif avec Streamlit appelant l'API pour effectuer les prédictions et déploiement de ce dernier sur Streamlit.
+11. Réalisation de tests unitaires avec Pytest de manière automatisée ou non.
+12. Notion de déploiement continu et automatisé du code de l'API sur le cloud *via* GitHub Actions.
 
 ## Liens pour les dashboards interactifs
 1. Version contenant les 48744 clients: https://colple-implementez-un-m-applicationsstreamlit-interactif-e6beqf.streamlit.app/
